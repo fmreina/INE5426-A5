@@ -17,7 +17,7 @@ extern void yyerror(const char* s, ...);
 /* token defines our terminal symbols (tokens).
  */
 %token <integer> T_INT
-%token T_PLUS T_NL
+%token T_PLUS T_NL T_TIMES
 
 /* type defines the type of our nonterminal symbols.
  * Types should match the names used in the union.
@@ -30,6 +30,7 @@ extern void yyerror(const char* s, ...);
  * The latest it is listed, the highest the precedence
  */
 %left T_PLUS
+%left T_TIMES
 %nonassoc error
 
 /* Starting rule 
@@ -52,6 +53,7 @@ line    : T_NL { $$ = NULL; } /*nothing here to be used */
 
 expr    : T_INT { $$ = new AST::Integer($1); }
         | expr T_PLUS expr { $$ = new AST::BinOp($1,AST::plus,$3); }
+	| expr T_TIMES expr { $$ = new AST::BinOp($1,AST::times,$3); }
         | expr error { yyerrok; $$ = $1; } /*just a point for error recovery*/
         ;
 

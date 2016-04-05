@@ -12,6 +12,9 @@ void BinOp::printTree(){
     left->printTree();
     switch(op){
         case plus: std::cout << " + ";
+	break;
+	case times: std::cout << " * ";
+	break;
     }
     right->printTree();
     return;
@@ -34,7 +37,14 @@ int BinOp::computeTree(){
     lvalue = left->computeTree();
     rvalue = right->computeTree();
     switch(op){
-         case plus: value = lvalue + rvalue;
+        case plus: 
+	std::cout << "Found a 'plus'" << std::endl; 
+	value = lvalue + rvalue;
+	break;
+        case times: 
+	std::cout << "Found a 'times'" << std::endl; 
+	value = lvalue * rvalue;
+	break;
     }
     return value;
 }
