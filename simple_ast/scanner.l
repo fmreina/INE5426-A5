@@ -9,11 +9,13 @@ void yyerror(const char* s, ...);
 %option noyywrap nodefault yylineno
 
 digs [0-9]+
+str [a-zA-Z]+
 
 %%
 
 [ \t]               ; //ignores spaces
 {digs}              {yylval.integer = std::atoi(yytext); return T_INT;}
+//{str}			{yylval.string = strdup(yytext); return T_VAR;}
 "+"                 {return T_PLUS;}
 "*"			{return T_TIMES;}
 \n                  {return T_NL;}

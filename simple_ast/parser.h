@@ -46,9 +46,10 @@ extern int yydebug;
   enum yytokentype
   {
     T_INT = 258,
-    T_PLUS = 259,
-    T_NL = 260,
-    T_TIMES = 261
+    T_VAR = 259,
+    T_PLUS = 260,
+    T_NL = 261,
+    T_TIMES = 262
   };
 #endif
 
@@ -60,10 +61,11 @@ union YYSTYPE
 #line 11 "parser.y" /* yacc.c:1909  */
 
     int integer;
+	char string[1000+1];
     AST::Node *node;
     AST::Block *block;
 
-#line 67 "parser.h" /* yacc.c:1909  */
+#line 69 "parser.h" /* yacc.c:1909  */
 };
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
