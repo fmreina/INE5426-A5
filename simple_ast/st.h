@@ -1,7 +1,6 @@
-/*Symbol Table definition*/
 /*Coded by llpilla*/
 
-#/*Symbol Table definition*/
+/*Symbol Table definition*/
 #pragma once
 
 #include <map>

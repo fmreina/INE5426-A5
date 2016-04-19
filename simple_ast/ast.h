@@ -3,10 +3,12 @@
 #include <iostream>
 #include <vector>
 
+extern void yyerrer(const char *s, ...);
+
 namespace AST {
 
 //Binary operations
-enum Operation { plus, times };
+enum Operation { plus, times, assign };
 
 class Node;
 
@@ -44,6 +46,15 @@ class Block : public Node {
         Block() { }
         void printTree();
         int computeTree();
+};
+
+class Variable : public Node {
+	public:
+		std::string id;
+		Node *next;
+		Variable(std::string id, Node *next) : id(id), next(next) {}
+		void printTree();
+		int computeTree();
 };
 
 }

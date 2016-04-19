@@ -49,10 +49,10 @@ extern int yydebug;
     T_VAR = 259,
     T_PLUS = 260,
     T_NL = 261,
-    T_TIMES = 262,
-    T_COMMA = 263,
-    T_ASSIGN = 264,
-    T_DEF = 265
+    T_COMMA = 262,
+    T_TIMES = 263,
+    T_DEF = 264,
+    T_ASSIGN = 265
   };
 #endif
 
