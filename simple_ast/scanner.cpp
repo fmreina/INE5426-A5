@@ -396,8 +396,8 @@ struct yy_trans_info
 	};
 static yyconst flex_int16_t yy_accept[19] =
     {   0,
-        0,    0,   12,   10,    1,    9,    5,    4,    7,    2,
-        6,    3,    3,    2,    3,    3,    3,    0
+        0,    0,   12,   10,    1,    9,    4,    3,    6,    2,
+        5,    8,    8,    2,    8,    8,    7,    0
     } ;
 
 static yyconst flex_int32_t yy_ec[256] =
@@ -788,32 +788,32 @@ YY_RULE_SETUP
 case 3:
 YY_RULE_SETUP
 #line 18 "scanner.l"
-{yylval.string = strdup(yytext); return T_VAR;}
+{return T_PLUS;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
 #line 19 "scanner.l"
-{return T_PLUS;}
+{return T_TIMES;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 20 "scanner.l"
-{return T_TIMES;}
+{return T_ASSIGN;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
 #line 21 "scanner.l"
-{return T_ASSIGN;}
+{return T_COMMA; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
 #line 22 "scanner.l"
-{return T_COMMA; }
+{return T_DEF;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
 #line 23 "scanner.l"
-{return T_DEF;}
+{yylval.string = strdup(yytext); return T_VAR;}
 	YY_BREAK
 case 9:
 /* rule 9 can match eol */
