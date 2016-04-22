@@ -13,16 +13,16 @@ str [a-z]+
 
 %%
 
-[ \t]               ; //ignores spaces
-{digs}              {yylval.integer = std::atoi(yytext); return T_INT;}
-"+"                 {return T_PLUS;}
-"*"			{return T_TIMES;}
-"="			{return T_ASSIGN;}
-","			{return T_COMMA; }
-"def"			{return T_DEF;}
-{str}			{yylval.string = strdup(yytext); return T_VAR;}
-\n                  {return T_NL;}
-.                   {yyerror("Unknown token! %c\n", *yytext);} /*complains about every unknown character*/
+[ \t]           ; //ignores spaces
+{digs}          {yylval.integer = std::atoi(yytext); return T_INT;}
+"+"             {return T_PLUS;}
+"*"		{return T_TIMES;}
+"="		{return T_ASSIGN;}
+","		{return T_COMMA; }
+"def"		{return T_DEF;}
+{str}		{yylval.string = strdup(yytext); return T_VAR;}
+\n              {return T_NL;}
+.               {yyerror("Unknown token! %c\n", *yytext);} /*complains about every unknown character*/
 
 %%
 

@@ -10,7 +10,7 @@ AST::Node* SymbolTable::newVariable(std::string id, AST::Node* next){
     if ( checkId(id) ) yyerror("Variable redefinition! %s\n", id.c_str());
     else {
        Symbol entry(integer, variable, 0, false);
-       addSymbol(id,entry); //Adds variable to symbol table
+       addSymbol(id,entry); //Adds variable to symbol table 
     }
     return new AST::Variable(id, next); //Creates variable node anyway
 }

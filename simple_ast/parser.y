@@ -49,7 +49,6 @@ extern void yyerror(const char* s, ...);
 program : lines { programRoot = $1; }
         ;
         
-
 lines   : line { $$ = new AST::Block(); if($1 != NULL)$$->lines.push_back($1); }
         | lines line { if($2 != NULL) $1->lines.push_back($2); }
 	| lines error T_NL { yyerrok; } 

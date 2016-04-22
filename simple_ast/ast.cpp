@@ -47,19 +47,19 @@ int BinOp::computeTree(){
     rvalue = right->computeTree();
     switch(op){
         case plus: 
-	//std::cout << "Found a 'plus'" << std::endl; 
-	value = lvalue + rvalue;
-	break;
+		//std::cout << "Found a 'plus'" << std::endl; 
+		value = lvalue + rvalue;
+		break;
         case times: 
-	//std::cout << "Found a 'times'" << std::endl; 
-	value = lvalue * rvalue;
-	break;
+		//std::cout << "Found a 'times'" << std::endl; 
+		value = lvalue * rvalue;
+		break;
 	case assign:
-            //assignments require data from the symbol table
-            Variable* leftvar = dynamic_cast<Variable*>(left);
-            symtab.entryList[leftvar->id].value = rvalue;
-            value = rvalue;
-	break;
+            	//assignments require data from the symbol table
+            	Variable* leftvar = dynamic_cast<Variable*>(left);
+            	symtab.entryList[leftvar->id].value = rvalue;
+           	 value = rvalue;
+		break;
     }
     return value;
 }
